@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from myapp import views
 from myapp.views import liveMatchSerializer, realTimeSerializer, upcomingFantasyMatchSerializer, fantasyTeamSerializer
+from myapp.api import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +32,6 @@ urlpatterns = [
     path(r'api/criclytics/upcomingMatches', upcomingFantasyMatchSerializer.as_view(), name="upcoming_fantasy_matches"),
 
     path(r'api/crex/fantasyTeam', fantasyTeamSerializer.as_view(), name="fantasy_team"),
+
+    path("api/", api.urls),
 ]

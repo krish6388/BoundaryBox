@@ -29,7 +29,10 @@ def scrape_match_info(url):
     time.sleep(4)
 
     match_name = find_element(driver, By.XPATH, '//h1[@class="name-wrapper"]/span')
-    toss_info = find_element(driver, By.XPATH, '//div[@class="toss-wrap"]/p')
+    try:
+        toss_info = find_element(driver, By.XPATH, '//div[@class="toss-wrap"]/p')
+    except:
+        toss_info = 'N/A'
     schedule_info = find_element(driver, By.XPATH, '//div[@class="match-date"]/div')
     # loc_info = find_element(driver, By.XPATH, '//div[@class="match-date match-venue"]/div') 
     

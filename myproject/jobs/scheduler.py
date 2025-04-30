@@ -6,9 +6,14 @@ from apscheduler.triggers.cron import CronTrigger
 from scripts_data.cricex.fixtures import scrape_fixtures
 from scripts_data.cricex.live import scrape_live
 from utils.helper.scrape_loop import scrape_in_loop
+from scripts_data.criclytics.upcoming_matches import scrape_upcoming_fantasy_matches
+from scripts_data.criclytics.fantasy_team import get_fantasy_team
+
 def schedule_job():
 	print("Starting actual job")
+	# print(get_fantasy_team('https://www.cricket.com/live-score/sunrisers-hyderabad-vs-mumbai-indians-match-41-indian-premier-league-2025-257255/criclytics'))
 	# scrape_fixtures(url='https://crex.live/fixtures/match-list')
+	# return
 	daily_trigger = CronTrigger(
         year="*", month="*", day="*", hour="19", minute="52", second="00"
     )
